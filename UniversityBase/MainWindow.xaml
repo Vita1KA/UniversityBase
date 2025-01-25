@@ -1,0 +1,77 @@
+﻿<Window x:Class="Task8.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Course and Group Management" Height="450" Width="800" Background="#ECEFF1">
+    <Window.Resources>
+        <Style x:Key="SidebarButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#3B5998"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="0,5,0,5"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="4">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#3498DB"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="0,5,0,5"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="4">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Background="#34495E" Padding="20">
+            <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <TextBlock Text="Management" Foreground="White" FontSize="24" FontWeight="Bold" Margin="0,0,0,30"/>
+                <Button Content="Courses" Margin="0,10,0,10" Style="{StaticResource SidebarButtonStyle}" Click="CoursesButton_Click"/>
+                <Button Content="Groups" Margin="0,10,0,10" Style="{StaticResource SidebarButtonStyle}" Click="GroupsButton_Click"/>
+                <Button Content="Students" Margin="0,10,0,10" Style="{StaticResource SidebarButtonStyle}" Click="StudentsButton_Click"/>
+                <Button Content="Teachers" Margin="0,10,0,10" Style="{StaticResource SidebarButtonStyle}" Click="TeachersButton_Click"/>
+                <Separator Margin="0,20,0,20"/>
+            </StackPanel>
+        </Border>
+        <Grid x:Name="ContentArea" Grid.Column="1" Background="#ECEFF1">
+            <StackPanel>
+                <TextBlock x:Name="HeaderText" Text="Please select an option from the sidebar" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#2C3E50" Margin="0,0,0,20"/>
+                <ListBox x:Name="DataListBox" SelectionChanged="DataListBox_SelectionChanged" Margin="20,0,20,20"/>
+                <Button x:Name="DeleteStudentButton" Content="Delete Student" Margin="0,10,0,10" Click="DeleteStudentButton_Click" Visibility="Collapsed" Style="{StaticResource PrimaryButtonStyle}"/>
+                <Button x:Name="AddStudentButton" Content="Add Student" Margin="0,10,0,10" Click="AddStudentButton_Click" Visibility="Collapsed" Style="{StaticResource PrimaryButtonStyle}"/>
+                <Button x:Name="EditStudentButton" Content="Edit Student" Margin="0,10,0,10" Click="EditStudentButton_Click" Visibility="Collapsed" Style="{StaticResource PrimaryButtonStyle}"/>
+                <Button x:Name="DeleteTeacherButton" Content="Delete Teacher" Margin="0,10,0,10" Click="DeleteTeacherButton_Click" Visibility="Collapsed" Style="{StaticResource PrimaryButtonStyle}"/>
+                <Button x:Name="AddTeacherButton" Content="Add Teacher" Margin="0,10,0,10" Click="AddTeacherButton_Click" Visibility="Collapsed" Style="{StaticResource PrimaryButtonStyle}"/>
+                <Button x:Name="EditTeacherButton" Content="Edit Teacher" Margin="0,10,0,10" Click="EditTeacherButton_Click" Visibility="Collapsed" Style="{StaticResource PrimaryButtonStyle}"/>
+                <Button x:Name="ManageGroupsButton" Content="Manage Groups" Margin="0,10,0,10" Click="ManageGroupsButton_Click" Visibility="Collapsed" Style="{StaticResource PrimaryButtonStyle}"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
+
